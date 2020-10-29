@@ -2,14 +2,14 @@ specVersion: 0.0.2
 description: pos burn subgraph
 repository: https://github.com/Aveesh52/pos-burn-subgraph
 schema:
-  file: ./schema.graphql
+  file: schema.graphql
 dataSources:
   - kind: ethereum/contract
     name: POS Burn Subgraph
     network: matic
     source:
       abi: childErc20ABI
-      address: '0xfe4F5145f6e09952a5ba9e956ED0C25e3Fa4c7F1'
+      address: "0xfe4F5145f6e09952a5ba9e956ED0C25e3Fa4c7F1"
     mapping:
       kind: ethereum/events
       apiVersion: 0.0.4
@@ -18,10 +18,11 @@ dataSources:
         - TransactionEntity
       abis:
         - name: childErc20ABI
-          file: ./abis/childErc20ABI.json
+          file: POS Burn Subgraph/abis/childErc20ABI.json
       eventHandlers:
-        - event: LogTransfer(indexed address,indexed address,indexed address,uint256,uint256,uint256,uint256,uint256)
+        - event: LogTransfer(indexed address,indexed address,indexed
+            address,uint256,uint256,uint256,uint256,uint256)
           handler: handleLogTransfer
         - event: Withdraw(indexed address,indexed address,uint256,uint256,uint256)
           handler: handleWithdraw
-      file: ./src/mappings/child-erc20-mapping.ts
+      file: POS Burn Subgraph/POS Burn Subgraph.wasm
